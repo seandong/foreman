@@ -14,8 +14,8 @@ ExecStart=/bin/bash -lc 'exec -a "<%= app %>-<%= process_name %>" <%= process.co
 Restart=always
 RestartSec=14s
 StandardInput=null
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=<%= engine.options[:log] || 'syslog' %>
+StandardError=<%= engine.options[:log] || 'syslog' %>
 SyslogIdentifier=%n
 KillMode=mixed
 TimeoutStopSec=<%= engine.options[:timeout] %>
